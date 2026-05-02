@@ -1,0 +1,6 @@
+[project]
+name = "mike-p-site"
+type = "static-react-vite"
+
+[validation]
+primary = "npm run validate && npm run build"
