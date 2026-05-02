@@ -675,11 +675,11 @@ img {
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(360px, 0.8fr) minmax(460px, 1.25fr) minmax(300px, 0.55fr);
-  gap: 34px;
-  align-items: center;
-  padding-top: 34px;
-  padding-bottom: 34px;
+  grid-template-columns: minmax(320px, 0.7fr) minmax(440px, 1.2fr) minmax(280px, 0.55fr);
+  gap: 24px;
+  align-items: start;
+  padding-top: 24px;
+  padding-bottom: 26px;
   border-bottom: 1px solid var(--line-soft);
   background: #090909;
 }
@@ -701,8 +701,9 @@ img {
 .studio-spaces {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  grid-template-rows: repeat(2, minmax(150px, 1fr));
-  gap: 16px;
+  grid-template-rows: repeat(2, minmax(132px, 1fr));
+  gap: 12px;
+  height: clamp(276px, 25vw, 340px);
   min-width: 0;
 }
 
@@ -710,6 +711,7 @@ img {
   position: relative;
   margin: 0;
   overflow: hidden;
+  min-height: 0;
   border: 1px solid var(--line-soft);
   border-radius: 8px;
   background: #111;
@@ -717,13 +719,15 @@ img {
 
 .studio-space.large {
   grid-row: 1 / span 2;
-  min-height: 360px;
+  min-height: 0;
 }
 
 .studio-space img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 260px;
+  min-height: 0;
   object-fit: cover;
   filter: brightness(0.84) contrast(1.04) saturate(1.02);
 }
@@ -753,8 +757,8 @@ img {
 
 .spotify-card {
   display: grid;
-  gap: 12px;
-  padding: 18px;
+  gap: 10px;
+  padding: 16px;
   border: 1px solid var(--line-soft);
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.035);
@@ -780,7 +784,7 @@ img {
 
 .spotify-frame {
   width: 100%;
-  height: 180px;
+  height: 152px;
   border: 0;
   border-radius: 8px;
   background: #111;
@@ -788,20 +792,20 @@ img {
 
 .project-section {
   display: grid;
-  grid-template-columns: 1fr minmax(380px, 520px);
-  gap: 38px;
-  align-items: start;
-  padding-top: 30px;
-  padding-bottom: 36px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+  padding-top: 22px;
+  padding-bottom: 24px;
   border-bottom: 1px solid var(--line-soft);
   background: linear-gradient(90deg, #151617, #101112);
 }
 
 .project-steps {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 18px 26px;
-  align-items: start;
+  grid-template-columns: auto minmax(310px, 0.48fr) minmax(520px, 1fr);
+  gap: 12px 22px;
+  align-items: center;
 }
 
 .project-steps > svg {
@@ -820,11 +824,12 @@ img {
 }
 
 .project-steps ol {
-  grid-column: 1 / -1;
+  grid-column: 3;
+  grid-row: 1 / span 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin: 22px 0 0;
+  gap: 16px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -851,11 +856,23 @@ img {
 
 .project-form {
   display: grid;
-  gap: 14px;
-  padding: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px 14px;
+  padding: 14px;
   border: 1px solid var(--line);
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.24);
+}
+
+.project-form .form-row {
+  display: contents;
+}
+
+.project-form > label:not(.check-row),
+.project-form .check-row,
+.project-form .submit-button,
+.project-form .form-status {
+  grid-column: span 2;
 }
 
 .form-row {
@@ -866,6 +883,7 @@ img {
 
 label {
   display: grid;
+  align-content: start;
   gap: 7px;
   color: var(--text);
   font-size: 0.82rem;
@@ -876,7 +894,7 @@ input,
 select,
 textarea {
   width: 100%;
-  min-height: 42px;
+  min-height: 38px;
   padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 3px;
@@ -887,7 +905,7 @@ textarea {
 }
 
 textarea {
-  min-height: 110px;
+  min-height: 82px;
   padding-top: 12px;
   resize: vertical;
 }
@@ -917,10 +935,13 @@ textarea:focus {
 }
 
 .form-status {
-  min-height: 20px;
   margin: 0;
   color: var(--muted);
   font-size: 0.84rem;
+}
+
+.form-status:empty {
+  display: none;
 }
 
 .footer {
@@ -1023,6 +1044,24 @@ textarea:focus {
   .project-section,
   .footer {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .project-section {
+    grid-template-columns: 1fr;
+  }
+
+  .project-steps {
+    grid-template-columns: auto 1fr;
+  }
+
+  .project-steps ol {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    margin-top: 8px;
+  }
+
+  .project-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .service-item:nth-child(2) {
@@ -1185,6 +1224,15 @@ textarea:focus {
 
   .studio-space.large {
     grid-row: auto;
+    min-height: 220px;
+  }
+
+  .studio-spaces {
+    height: auto;
+  }
+
+  .studio-space {
+    min-height: 190px;
   }
 
   .lesson-list {
@@ -1201,6 +1249,17 @@ textarea:focus {
     border-right: 0;
     border-bottom: 1px solid var(--line);
     padding-bottom: 14px;
+  }
+
+  .project-form {
+    grid-template-columns: 1fr;
+  }
+
+  .project-form > label:not(.check-row),
+  .project-form .check-row,
+  .project-form .submit-button,
+  .project-form .form-status {
+    grid-column: 1;
   }
 
   .project-steps li:last-child {
