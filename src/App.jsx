@@ -7,7 +7,6 @@ import {
   ExternalLink,
   Headphones,
   Instagram,
-  Mail,
   Mic2,
   Music2,
   Play,
@@ -68,7 +67,7 @@ function SocialLinks({ compact = false }) {
         <Instagram size={compact ? 16 : 18} />
       </a>
       <a href={links.tiktok} aria-label="TikTok" target="_blank" rel="noreferrer">
-        <span className="social-letter">♪</span>
+        <Music2 size={compact ? 16 : 18} />
       </a>
       <a href={links.spotify} aria-label="Spotify" target="_blank" rel="noreferrer">
         <Headphones size={compact ? 16 : 18} />
@@ -83,7 +82,7 @@ function Hero() {
       <div className="hero-copy">
         <h1>Michael Papaleontiou</h1>
         <p className="role-line">
-          Music Producer <span /> Mixing Engineer <span /> Youtuber
+          Music Producer <span /> Mixing Engineer <span /> YouTuber
         </p>
         <h2>Record. Mix. Release heavier.</h2>
         <p className="hero-lede">
@@ -99,9 +98,8 @@ function Hero() {
         </div>
         <SocialLinks />
       </div>
-      <div className="hero-media" aria-label="Mike P Studio control room">
-        <img src={asset('studio-control-room.jpg')} alt="Mike P Studio control room" />
-        <img className="hero-portrait" src={asset('producer.jpg')} alt="Michael Papaleontiou working in studio" />
+      <div className="hero-media" aria-hidden="true">
+        <img src={asset('studio-control-room.jpg')} alt="" />
       </div>
     </section>
   );
@@ -238,9 +236,29 @@ function AboutStudio() {
           instead of another unfinished demo.
         </p>
       </div>
-      <figure>
-        <img src={asset('studio-live-room.jpg')} alt="Mike P Studio live room with microphones" />
-      </figure>
+      <div className="studio-spaces" aria-label="Studio spaces">
+        <figure className="studio-space large">
+          <img src={asset('studio-live-room.jpg')} alt="Mike P Studio live room with microphones" />
+          <figcaption>
+            <strong>Live room</strong>
+            <span>Mic-ready tracking space for vocals, keys, guitars and reamps.</span>
+          </figcaption>
+        </figure>
+        <figure className="studio-space">
+          <img src={asset('studio-control-room.jpg')} alt="Mike P Studio control room" />
+          <figcaption>
+            <strong>Control room</strong>
+            <span>DAW, monitors and outboard for editing and mix translation.</span>
+          </figcaption>
+        </figure>
+        <figure className="studio-space">
+          <img src={asset('producer.jpg')} alt="Michael Papaleontiou working in studio" />
+          <figcaption>
+            <strong>Production desk</strong>
+            <span>Editing, arrangement and mix decisions in one focused room.</span>
+          </figcaption>
+        </figure>
+      </div>
       <div className="spotify-card">
         <p>Hip Hop Tracks</p>
         <h3>Listen on Spotify</h3>
