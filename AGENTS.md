@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## Project
-Static React/Vite marketing site for Mike P Studio, deployed to GitHub Pages at `/mike-p-site/`.
+Static React/Vite marketing site for Mike P Studio, deployed to GitHub Pages with the custom domain `mikepofficial.com`.
 
 ## Operating Rules
 - Keep the site static-hosting safe: no server-only form handling or secrets.
@@ -11,4 +11,4 @@ Static React/Vite marketing site for Mike P Studio, deployed to GitHub Pages at 
 - Run `npm run validate` first, then `npm run build` before publishing.
 
 ## Deployment
-GitHub Pages serves the committed `docs/` build output from `main`; Vite base path must stay `/mike-p-site/`.
+GitHub Pages serves the committed `docs/` build output from `main`; Vite base path must stay `/` for the custom domain.

@@ -24,6 +24,10 @@ for (const file of requiredFiles) {
 
 const app = readFileSync(join(root, 'src/App.jsx'), 'utf8');
 const config = readFileSync(join(root, 'vite.config.js'), 'utf8');
+const docsIndexPath = join(root, 'docs/index.html');
+const docsIndex = existsSync(docsIndexPath) ? readFileSync(docsIndexPath, 'utf8') : '';
+const docsCnamePath = join(root, 'docs/CNAME');
+const docsCname = existsSync(docsCnamePath) ? readFileSync(docsCnamePath, 'utf8').trim() : '';
 
 for (const text of [
   'Michael Papaleontiou',
@@ -36,8 +40,11 @@ for (const text of [
   checks.push({ name: `content:${text}`, ok: app.includes(text) });
 }
 
-checks.push({ name: 'vite-base', ok: config.includes("base: '/mike-p-site/'") });
+checks.push({ name: 'vite-base-custom-domain', ok: config.includes("base: '/'") });
+checks.push({ name: 'vite-builds-to-docs', ok: config.includes("outDir: 'docs'") });
 checks.push({ name: 'pages-docs-build', ok: existsSync(join(root, 'docs/index.html')) || existsSync(join(root, 'dist/index.html')) });
+checks.push({ name: 'pages-cname', ok: docsCname === 'mikepofficial.com' });
+checks.push({ name: 'docs-assets-rooted-for-custom-domain', ok: docsIndex !== '' && !docsIndex.includes('/mike-p-site/') });
 
 const failures = checks.filter((check) => !check.ok);
 
