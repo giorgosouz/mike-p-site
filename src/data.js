@@ -44,6 +44,78 @@ export const services = [
   },
 ];
 
+export const servicePackages = [
+  {
+    title: 'Full production package',
+    outcome: 'Take a riff, demo or song idea and turn it into a finished release-ready track.',
+    details: ['Arrangement support', 'Editing and programming', 'Production direction'],
+  },
+  {
+    title: 'Recording package',
+    outcome: 'Track guitars, bass, vocals, keys or reamps in a treated Athens studio.',
+    details: ['Mic-ready rooms', 'Focused session workflow', 'Clean files for mix'],
+  },
+  {
+    title: 'Remote mixing package',
+    outcome: 'Send multitracks from anywhere and get a heavy, clear, modern mix.',
+    details: ['Remote file handoff', 'Mix revisions', 'Release-focused delivery'],
+  },
+  {
+    title: 'Mixing lesson package',
+    outcome: 'Get practical production and mixing guidance from the MixingMadeEasy workflow.',
+    details: ['Session walkthroughs', 'Plugin and routing decisions', 'Actionable next steps'],
+  },
+];
+
+export const clientProcess = [
+  {
+    title: 'Send rough demo',
+    copy: 'Share the song, references, genre, and where you want the track to land.',
+  },
+  {
+    title: 'Plan the session',
+    copy: 'Choose production, recording, mixing, lesson work, or a combination that fits.',
+  },
+  {
+    title: 'Build the track',
+    copy: 'Track, edit, arrange, and mix with clear checkpoints instead of guesswork.',
+  },
+  {
+    title: 'Deliver release files',
+    copy: 'Leave with approved audio and next steps for release or revisions.',
+  },
+];
+
+export const studioProof = [
+  'Treated live room for vocals, guitars, keys and reamps.',
+  'Control room with DAW, monitors and outboard workflow.',
+  'Remote sessions for bands outside Athens and Greece.',
+  'MixingMadeEasy education behind the same production decisions.',
+];
+
+export const faqs = [
+  {
+    question: 'Can you mix my song remotely?',
+    answer: 'Yes. Send multitracks, references and goals, then the mix can move forward remotely.',
+  },
+  {
+    question: 'What files do you need?',
+    answer: 'For mixing, send consolidated WAV stems or multitracks from the same start point.',
+  },
+  {
+    question: 'How long does a project take?',
+    answer: 'Timeline depends on scope, but the contact form asks for release goals so the plan starts clear.',
+  },
+  {
+    question: 'Do you only work on metal?',
+    answer: 'Metal and rock are the focus, with hip hop and other heavy modern production also represented.',
+  },
+  {
+    question: 'Can I book a lesson instead of a mix?',
+    answer: 'Yes. The YouTube lesson option is available for mixing walkthroughs and workflow guidance.',
+  },
+];
+
 export const tracks = [
   {
     title: 'Abide',

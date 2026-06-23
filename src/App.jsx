@@ -16,10 +16,14 @@ import {
 } from 'lucide-react';
 import {
   contactEmail,
+  clientProcess,
+  faqs,
   links,
   navItems,
   projectTypes,
+  servicePackages,
   services,
+  studioProof,
   tracks,
 } from './data.js';
 
@@ -86,8 +90,14 @@ function Hero() {
         </p>
         <h2>Record. Mix. Release heavier.</h2>
         <p className="hero-lede">
-          Modern metal production from a studio built for loud bands.
+          Metal, rock, and heavy production from an Athens studio built for artists
+          who need finished, release-ready tracks.
         </p>
+        <ul className="hero-proof" aria-label="Studio proof points">
+          <li>Athens studio</li>
+          <li>Remote mixes worldwide</li>
+          <li>Metal and rock focus</li>
+        </ul>
         <div className="hero-actions">
           <a className="button button-primary" href="#contact">
             Book a project call <ArrowRight size={20} />
@@ -124,6 +134,33 @@ function Services() {
   );
 }
 
+function ServicePackages() {
+  return (
+    <section className="package-section section-edge" aria-label="Service packages">
+      <div className="section-intro package-intro">
+        <p>Service Packages</p>
+        <h2>Choose the right level of support</h2>
+        <a className="outline-link" href="#contact">
+          Ask what fits <ArrowRight size={16} />
+        </a>
+      </div>
+      <div className="package-grid">
+        {servicePackages.map((servicePackage) => (
+          <article className="package-card" key={servicePackage.title}>
+            <h3>{servicePackage.title}</h3>
+            <p>{servicePackage.outcome}</p>
+            <ul>
+              {servicePackage.details.map((detail) => (
+                <li key={detail}><Check size={15} /> {detail}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function TrackCard({ track, active, onSelect }) {
   return (
     <button
@@ -136,6 +173,7 @@ function TrackCard({ track, active, onSelect }) {
       <span className="track-copy">
         <strong>{track.title}</strong>
         <span>{track.artist}</span>
+        <span>Production / mix sample</span>
         <span className="waveform" aria-hidden="true" />
       </span>
       <span className="play-dot" aria-hidden="true">
@@ -170,10 +208,10 @@ function Mixes() {
         </div>
         <div className="audio-panel">
           <div>
-            <p>Now playing</p>
+            <p>Portfolio sample</p>
             <h3>{selectedTrack.title}</h3>
             <a href={selectedTrack.preview} target="_blank" rel="noreferrer">
-              Open Drive preview <ExternalLink size={14} />
+              Open full preview <ExternalLink size={14} />
             </a>
           </div>
           <iframe
@@ -220,6 +258,26 @@ function YoutubeEducation() {
         <img src={asset('mixing-made-easy-logo.jpg')} alt="MixingMadeEasy logo" />
         <strong>MixingMadeEasy</strong>
       </div>
+    </section>
+  );
+}
+
+function ClientProcess() {
+  return (
+    <section className="process-section section-edge" aria-label="Client process">
+      <div className="process-heading">
+        <p className="section-kicker">Process</p>
+        <h2>From idea to finished track</h2>
+      </div>
+      <ol className="process-list">
+        {clientProcess.map((step, index) => (
+          <li key={step.title}>
+            <span>{index + 1}</span>
+            <strong>{step.title}</strong>
+            <p>{step.copy}</p>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
@@ -277,6 +335,44 @@ function AboutStudio() {
   );
 }
 
+function StudioTrust() {
+  return (
+    <section className="proof-section section-edge" aria-label="Studio proof">
+      <div>
+        <p className="section-kicker">Studio Proof</p>
+        <h2>Real rooms, clear workflow, no mystery handoff.</h2>
+      </div>
+      <ul className="proof-list">
+        {studioProof.map((proof) => (
+          <li key={proof}><Check size={16} /> {proof}</li>
+        ))}
+      </ul>
+      <a className="outline-link" href="#mixes">
+        Hear portfolio samples <Play size={16} />
+      </a>
+    </section>
+  );
+}
+
+function FaqSection() {
+  return (
+    <section className="faq-section section-edge" aria-label="Frequently asked questions">
+      <div className="section-intro faq-intro">
+        <p>Frequently asked questions</p>
+        <h2>Answers before booking</h2>
+      </div>
+      <div className="faq-grid">
+        {faqs.map((faq) => (
+          <article className="faq-item" key={faq.question}>
+            <h3>{faq.question}</h3>
+            <p>{faq.answer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ProjectForm() {
   const [status, setStatus] = useState('');
   const [formData, setFormData] = useState({
@@ -315,7 +411,7 @@ function ProjectForm() {
       `Email: ${formData.email}`,
       `Project type: ${formData.projectType}`,
       `Genre: ${formData.genre || 'Not specified'}`,
-      `Budget / timeline: ${formData.timeline || 'Not specified'}`,
+      `Timeline / goals: ${formData.timeline || 'Not specified'}`,
       `Newsletter: ${formData.newsletter ? 'Yes' : 'No'}`,
       '',
       'Project details:',
@@ -370,8 +466,8 @@ function ProjectForm() {
           </label>
         </div>
         <label>
-          Budget / timeline
-          <input name="timeline" value={formData.timeline} onChange={updateField} placeholder="Mix this month / EP by summer" />
+          Timeline / goals
+          <input name="timeline" value={formData.timeline} onChange={updateField} placeholder="Mix this month / EP by summer / release goals" />
         </label>
         <label>
           Message
@@ -430,9 +526,13 @@ export default function App() {
       <main>
         <Hero />
         <Services />
+        <ServicePackages />
         <Mixes />
         <YoutubeEducation />
         <AboutStudio />
+        <StudioTrust />
+        <ClientProcess />
+        <FaqSection />
         <ProjectForm />
       </main>
       <Footer />
