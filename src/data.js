@@ -1,4 +1,4 @@
-export const contactEmail = 'michaelpapaleontiou@gmail.com';
+export const contactEmail = 'contactmixingmadeeasy@gmail.com';
 
 export const links = {
   mikeYoutube: 'https://www.youtube.com/@MikePproductions',
@@ -29,7 +29,7 @@ export const services = [
   },
   {
     title: 'Recording',
-    copy: 'Drums, guitars, bass, vocals and more in a treated home studio.',
+    copy: 'Drums, guitars, bass, vocals and more in a treated studio.',
     icon: 'mic',
   },
   {

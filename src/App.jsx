@@ -86,7 +86,7 @@ function Hero() {
         </p>
         <h2>Record. Mix. Release heavier.</h2>
         <p className="hero-lede">
-          Modern metal production from a home studio built for loud bands.
+          Modern metal production from a studio built for loud bands.
         </p>
         <div className="hero-actions">
           <a className="button button-primary" href="#contact">
@@ -228,7 +228,7 @@ function AboutStudio() {
   return (
     <section className="about-grid section-edge" id="about">
       <div>
-        <p className="section-kicker">Home Studio</p>
+        <p className="section-kicker">Studio</p>
         <h2>Built for loud ideas, tight sessions, and mixes that translate.</h2>
         <p>
           Mike P Studio combines hands-on production, treated recording rooms,
@@ -401,7 +401,7 @@ function Footer() {
       <img src={asset('michael-logo.jpg')} alt="Michael Papaleontiou logo" />
       <div>
         <h2>Mike P Studio</h2>
-        <p>Home studio in Athens, Greece. Working with bands worldwide.</p>
+        <p>Studio in Athens, Greece. Working with bands worldwide.</p>
       </div>
       <div>
         <h3>Links</h3>
