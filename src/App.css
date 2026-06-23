@@ -586,7 +586,7 @@ img {
 
 .youtube-section {
   display: grid;
-  grid-template-columns: 320px 260px 1fr 320px;
+  grid-template-columns: 320px 260px minmax(220px, 1fr) max-content;
   gap: 40px;
   align-items: center;
   padding-top: 10px;
@@ -671,6 +671,16 @@ img {
 .channel-lockup strong {
   font-size: clamp(1.7rem, 3vw, 2.55rem);
   font-weight: 900;
+}
+
+@media (max-width: 1500px) {
+  .youtube-section {
+    grid-template-columns: minmax(280px, 0.95fr) minmax(360px, 1fr);
+  }
+
+  .channel-lockup {
+    justify-content: flex-start;
+  }
 }
 
 .about-grid {
